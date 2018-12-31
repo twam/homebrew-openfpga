@@ -4,9 +4,11 @@ class Prjtrellis < Formula
   head "https://github.com/SymbiFlow/prjtrellis.git"
 
   depends_on "cmake" => :build
-  depends_on "boost" => "with-python"
-  depends_on "boost-python"
+  depends_on "boost"
+  depends_on "boost-python3"
   depends_on "python"
+
+  needs :cxx14
 
   def install
     cd "libtrellis" do
