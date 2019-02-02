@@ -1,9 +1,9 @@
 class Nextpnr < Formula
   desc "Place and Route Tool for ECP5 FPGAs"
   homepage "https://github.com/YosysHQ/nextpnr"
-  url "https://github.com/YosysHQ/nextpnr/archive/c1d15c749c2aa105ee7b38ebe1b60a27e3743e8c.tar.gz"
-  version "20190108"
-  sha256 "5f410f956e730bef44f70e89aa7e9f7ea57c4ad2fe6c59f78ed0798f99ba0a16"
+  url "https://github.com/YosysHQ/nextpnr/archive/6d664046d3774c8fa2a9dccb64dd8ab06cc0cd0a.tar.gz"
+  version "20190129"
+  sha256 "631995b809c65ef73976de707da81ae7b0450daf0eaf4af763f83c1d6117a44d"
   head "https://github.com/YosysHQ/nextpnr.git"
 
   option "without-gui", "No GUI"
