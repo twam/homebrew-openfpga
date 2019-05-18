@@ -1,9 +1,9 @@
 class Nextpnr < Formula
   desc "Place and Route Tool for ECP5 FPGAs"
   homepage "https://github.com/YosysHQ/nextpnr"
-  url "https://github.com/YosysHQ/nextpnr/archive/6d664046d3774c8fa2a9dccb64dd8ab06cc0cd0a.tar.gz"
-  version "20190129"
-  sha256 "631995b809c65ef73976de707da81ae7b0450daf0eaf4af763f83c1d6117a44d"
+  url "https://github.com/YosysHQ/nextpnr/archive/c9ba65e7b2364147f8b27fbff1bb85a961f665c4.tar.gz"
+  version "20190518"
+  sha256 "e62c64825ec496d3b77afd305d92de039f9a7bb96831bc440a21d5ea67782ee8"
   head "https://github.com/YosysHQ/nextpnr.git"
 
   option "without-gui", "No GUI"
@@ -12,18 +12,18 @@ class Nextpnr < Formula
   option "without-arch-ecp5", "Disable support for Lattice ECP5 FPGAs"
 
   depends_on "cmake" => :build
+  depends_on "ninja" => :build
 
-  depends_on "icestorm" if build.with? "arch-ice40"
-  depends_on "prjtrellis" if build.with? "arch-ecp5"
-  depends_on "qt5" if build.with? "gui"
   depends_on "boost"
   depends_on "boost-python3"
-  depends_on "python@3"
+  depends_on "icestorm" if build.with? "arch-ice40"
+  depends_on "prjtrellis" if build.with? "arch-ecp5"
+  depends_on "python"
+  depends_on "qt" if build.with? "gui"
 
   def install
     args = []
     args << "-DBUILD_GUI=OFF" if build.without? "gui"
-    args << "-DTRELLIS_ROOT=/usr/local/share/trellis" if build.with? "arch-ecp5"
 
     archs = []
     archs << "ice40" if build.with? "arch-ice40"
@@ -31,8 +31,13 @@ class Nextpnr < Formula
     archs << "generic" if build.with? "arch-generic"
     args << ("-DARCH=" << archs.join(";"))
 
-    system "cmake", *args, ".", *std_cmake_args
-    system "make"
-    system "make install"
+    system "cmake", *args, ".", "-GNinja", *std_cmake_args
+    system "ninja"
+    system "ninja", "install"
+  end
+
+  test do
+    system "#{bin}/nextpnr-ecp5", "--help" if build.with? "arch-ecp5"
+    system "#{bin}/nextpnr-ice40", "--help" if build.with? "arch-ice40"
   end
 end
