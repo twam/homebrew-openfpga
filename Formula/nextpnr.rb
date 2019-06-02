@@ -16,6 +16,7 @@ class Nextpnr < Formula
 
   depends_on "boost"
   depends_on "boost-python3"
+  depends_on "eigen"
   depends_on "icestorm" if build.with? "arch-ice40"
   depends_on "prjtrellis" if build.with? "arch-ecp5"
   depends_on "python"
