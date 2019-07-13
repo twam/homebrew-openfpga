@@ -1,9 +1,9 @@
 class Prjtrellis < Formula
   desc "Device database and tools for bitstream creation for ECP5 FPGAs"
   homepage "https://github.com/SymbiFlow/prjtrellis"
-  version "20190422"
-  url "https://github.com/SymbiFlow/prjtrellis/archive/5eb0ad870f30422b95d090ac9a476343809c62b9.tar.gz"
-  sha256 "846a28d8d08dc7953f826a8893615fb335ab126b3099202afa33d37896327ce2"
+  version "20190627"
+  url "https://github.com/SymbiFlow/prjtrellis/archive/3311e6d814e0001c8785d6d77a4c93e327875b6d.tar.gz"
+  sha256 "1aed84a02289726154cdcf6e9260ac2caad5b4d2a41cd2ab70135d05b3350135"
   head "https://github.com/SymbiFlow/prjtrellis.git"
 
   depends_on "cmake" => :build
