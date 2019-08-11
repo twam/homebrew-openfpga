@@ -1,9 +1,9 @@
 class Prjtrellis < Formula
   desc "Device database and tools for bitstream creation for ECP5 FPGAs"
   homepage "https://github.com/SymbiFlow/prjtrellis"
-  version "20190627"
-  url "https://github.com/SymbiFlow/prjtrellis/archive/3311e6d814e0001c8785d6d77a4c93e327875b6d.tar.gz"
-  sha256 "1aed84a02289726154cdcf6e9260ac2caad5b4d2a41cd2ab70135d05b3350135"
+  version "20190809"
+  url "https://github.com/SymbiFlow/prjtrellis/archive/a67379179985bb12a611c75d975548cdf6e7d12e.tar.gz"
+  sha256 "618562a4701585c1bd8ae0a6722483741e7f54882013f5549ee91e3b2cbb60da"
   head "https://github.com/SymbiFlow/prjtrellis.git"
 
   depends_on "cmake" => :build
@@ -13,8 +13,8 @@ class Prjtrellis < Formula
   depends_on "python"
 
   resource "database" do
-    url "https://github.com/SymbiFlow/prjtrellis-db/archive/d0b219af41ae3da6150645fbc5cc5613b530603f.tar.gz"
-    sha256 "1f1b71741e8b70af777561a1422be8a01992ea46b363da24b7b97e41fa0fa5c5"
+    url "https://github.com/SymbiFlow/prjtrellis-db/archive/b4d626b6402c131e9a035470ffe4cf33ccbe7986.tar.gz"
+    sha256 "28a0d6037a970fc9054003699d807bed5e20faf912fcc697ab6ea24b07508f04"
   end
 
   def install
