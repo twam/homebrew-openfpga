@@ -7,6 +7,8 @@ class Nextpnr < Formula
   head "https://github.com/YosysHQ/nextpnr.git"
 
   option "without-gui", "No GUI"
+  option "without-python", "No python scripting support"
+  option "with-static", "Build with static libraries"
   option "with-arch-generic", "Enable generic arch support"
   option "without-arch-ice40", "Disable support for Lattice iCE40 FPGAs"
   option "without-arch-ecp5", "Disable support for Lattice ECP5 FPGAs"
@@ -19,12 +21,14 @@ class Nextpnr < Formula
   depends_on "eigen"
   depends_on "icestorm" if build.with? "arch-ice40"
   depends_on "prjtrellis" if build.with? "arch-ecp5"
-  depends_on "python"
   depends_on "qt" if build.with? "gui"
+  depends_on "python" => :optional
 
   def install
     args = []
     args << "-DBUILD_GUI=OFF" if build.without? "gui"
+    args << "-DBUILD_PYTHON=OFF" if build.without? "python"
+    args << "-DSTATIC_BUILD=ON" if build.with? "static"
 
     archs = []
     archs << "ice40" if build.with? "arch-ice40"
