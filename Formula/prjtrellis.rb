@@ -1,10 +1,14 @@
 class Prjtrellis < Formula
   desc "Device database and tools for bitstream creation for ECP5 FPGAs"
   homepage "https://github.com/SymbiFlow/prjtrellis"
-  version "20190809"
-  url "https://github.com/SymbiFlow/prjtrellis/archive/a67379179985bb12a611c75d975548cdf6e7d12e.tar.gz"
-  sha256 "618562a4701585c1bd8ae0a6722483741e7f54882013f5549ee91e3b2cbb60da"
+  version "20190911"
+  url "https://github.com/SymbiFlow/prjtrellis/archive/f6922699dcb44799fe72a861e19e93cbe235c400.tar.gz"
+  sha256 "353fc1a7015dc257e17337a0eb22e2b8938e5f6b7a9b03cae0da1400020a4c81"
   head "https://github.com/SymbiFlow/prjtrellis.git"
+
+  option "without-python", "No python"
+  option "without-shared", "No shared Trellis lib"
+  option "with-static", "Use static lib build"
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
@@ -20,8 +24,18 @@ class Prjtrellis < Formula
   def install
     (buildpath/"database").install resource("database") unless build.head?
 
+    args = []
+    args << "-DBUILD_PYTHON=OFF" if build.without? "python"
+    args << "-DBUILD_SHARED=OFF" if build.without? "shared"
+    args << "-DSTATIC_BUILD=ON" if build.with? "static"
+
+    args << "-DBoost_NO_BOOST_CMAKE=ON"
+
+    args << "-DCURRENT_GIT_VERSION=f692269" unless build.head?
+    args << "-DCURRENT_GIT_VERSION="+head.version.commit if build.head?
+
     cd "libtrellis" do
-      system "cmake", "-GNinja", *std_cmake_args
+      system "cmake", *args, ".", "-GNinja", *std_cmake_args
       system "ninja"
       system "ninja", "install"
     end
