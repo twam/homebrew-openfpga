@@ -1,9 +1,9 @@
 class Prjtrellis < Formula
   desc "Device database and tools for bitstream creation for ECP5 FPGAs"
   homepage "https://github.com/SymbiFlow/prjtrellis"
-  version "20190911"
-  url "https://github.com/SymbiFlow/prjtrellis/archive/f6922699dcb44799fe72a861e19e93cbe235c400.tar.gz"
-  sha256 "353fc1a7015dc257e17337a0eb22e2b8938e5f6b7a9b03cae0da1400020a4c81"
+  version "20191204"
+  url "https://github.com/SymbiFlow/prjtrellis/archive/ca601cd272c93c0be8d51f2a9ce052066c8d0de1.tar.gz"
+  sha256 "0ec71c9887169294d1d4a2afc97d452d0f17371cd151fdcb02a7b349915b3aff"
   head "https://github.com/SymbiFlow/prjtrellis.git"
 
   option "without-python", "No python"
@@ -17,8 +17,8 @@ class Prjtrellis < Formula
   depends_on "python"
 
   resource "database" do
-    url "https://github.com/SymbiFlow/prjtrellis-db/archive/b4d626b6402c131e9a035470ffe4cf33ccbe7986.tar.gz"
-    sha256 "28a0d6037a970fc9054003699d807bed5e20faf912fcc697ab6ea24b07508f04"
+    url "https://github.com/SymbiFlow/prjtrellis-db/archive/e3a1751355910c7ac0b3535e20264a6022381a87.tar.gz"
+    sha256 "d75ec86d779666340212bd248c136deb144e0b5fa1f126969227e414f6e9c95d"
   end
 
   def install
