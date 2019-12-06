@@ -1,9 +1,9 @@
 class Ujprog < Formula
   desc "ULX2S / ULX3S FPGA JTAG programmer"
   homepage "https://github.com/f32c/tools"
-  url "https://github.com/f32c/tools/archive/73c0c267d7d7cc211fa3506d9d3faa71c86a45cb.tar.gz"
-  version "3.0.92"
-  sha256 "5350008798612eec887eacc152090ad4048449094af9888a891ea950ef64b114"
+  url "https://github.com/f32c/tools/archive/0698352b0e912caa9b8371b8f692e19aac547a69.tar.gz"
+  version "3.0.92-r1"
+  sha256 "2b863a366b063c54ad164602b601bca6f8374d85b798090780dcc43cb423fed4"
   head "https://github.com/f32c/tools.git"
 
   depends_on "pkg-config" => :build
