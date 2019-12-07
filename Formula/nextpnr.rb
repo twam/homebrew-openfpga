@@ -1,9 +1,9 @@
 class Nextpnr < Formula
   desc "Place and Route Tool for ECP5 FPGAs"
   homepage "https://github.com/YosysHQ/nextpnr"
-  url "https://github.com/YosysHQ/nextpnr/archive/1c1c096861d553f1fc71d7db3652af25b980b219.tar.gz"
-  version "20191129"
-  sha256 "b44024e35ebdf6b23a5bc397e0b9c2d149e52b2ac91e91f2818b72a7f0053c01"
+  url "https://github.com/YosysHQ/nextpnr/archive/f0887427da28c4993b44e0e7f3e3ac39f29c16fd.tar.gz"
+  version "20191297"
+  sha256 "676efe7a67622e5b6bb28d77d4706c5eeb35c7053f9b95bf9c9edab53be026b2"
   head "https://github.com/YosysHQ/nextpnr.git"
 
   option "without-gui", "No GUI"
@@ -22,7 +22,7 @@ class Nextpnr < Formula
   depends_on "icestorm" if build.with? "arch-ice40"
   depends_on "prjtrellis" if build.with? "arch-ecp5"
   depends_on "qt" if build.with? "gui"
-  depends_on "python" => :optional
+  depends_on "python" if build.with? "python"
 
   def install
     args = []
