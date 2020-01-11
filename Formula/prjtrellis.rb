@@ -31,7 +31,8 @@ class Prjtrellis < Formula
 
     args << "-DBoost_NO_BOOST_CMAKE=ON"
 
-    args << "-DCURRENT_GIT_VERSION=f692269" unless build.head?
+    stable_version_commit = @stable.url[/([a-f0-9]*)\.tar\.gz/,1]
+    args << "-DCURRENT_GIT_VERSION="+stable_version_commit unless build.head?
     args << "-DCURRENT_GIT_VERSION="+head.version.commit if build.head?
 
     cd "libtrellis" do
