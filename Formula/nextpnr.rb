@@ -1,9 +1,9 @@
 class Nextpnr < Formula
   desc "Place and Route Tool for ECP5 FPGAs"
   homepage "https://github.com/YosysHQ/nextpnr"
-  url "https://github.com/YosysHQ/nextpnr/archive/abfe31d5d22a0ed1cc6ef32cf73fc1826b090b1c.tar.gz"
-  version "20191230"
-  sha256 "63f0172f7890510aab85a503d24686f9ddd9bda8c57b7baf0b413aaaf5855e2d"
+  url "https://github.com/YosysHQ/nextpnr/archive/92a2109f0c906504b8b7daa95b2a88943a59460d.tar.gz"
+  version "20200114"
+  sha256 "bb0a18d97c3e92391719865156afb9b2207b38862905a8dc56e57d876f1eeb71"
   head "https://github.com/YosysHQ/nextpnr.git"
 
   option "without-gui", "No GUI"
@@ -35,6 +35,11 @@ class Nextpnr < Formula
     archs << "ecp5" if build.with? "arch-ecp5"
     archs << "generic" if build.with? "arch-generic"
     args << ("-DARCH=" << archs.join(";"))
+
+    stable_version_commit = @stable.url[/([a-f0-9]{8})[a-f0-9]{32}\.tar\.gz/,1]
+    stable_version = @stable.version.to_s+" ("+stable_version_commit+")"
+    args << "-DCURRENT_GIT_VERSION="+stable_version unless build.head?
+    args << "-DCURRENT_GIT_VERSION="+head.version.commit if build.head?
 
     system "cmake", *args, ".", "-GNinja", *std_cmake_args
     system "ninja"
