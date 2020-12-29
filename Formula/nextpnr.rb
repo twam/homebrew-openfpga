@@ -1,9 +1,9 @@
 class Nextpnr < Formula
-  desc "Place and Route Tool for ECP5 FPGAs"
+  desc "Place and Route Tool for FPGAs"
   homepage "https://github.com/YosysHQ/nextpnr"
-  url "https://github.com/YosysHQ/nextpnr/archive/92a2109f0c906504b8b7daa95b2a88943a59460d.tar.gz"
-  version "20200114"
-  sha256 "bb0a18d97c3e92391719865156afb9b2207b38862905a8dc56e57d876f1eeb71"
+  url "https://github.com/YosysHQ/nextpnr/archive/5e53a182921dad0e128186a1fe8766062c7cae61.tar.gz"
+  version "20201227"
+  sha256 "12a798cfecaadf551704bd6bf99fbcd83d1428244be21ddadadc3e7e5da15eb0"
   head "https://github.com/YosysHQ/nextpnr.git"
 
   option "without-gui", "No GUI"
@@ -25,17 +25,29 @@ class Nextpnr < Formula
   depends_on "python" if build.with? "python"
 
   def install
+    # Generic options
     args = []
     args << "-DBUILD_GUI=OFF" if build.without? "gui"
     args << "-DBUILD_PYTHON=OFF" if build.without? "python"
     args << "-DSTATIC_BUILD=ON" if build.with? "static"
 
+    # Architectures
     archs = []
+
+    # ICE40
     archs << "ice40" if build.with? "arch-ice40"
+    args << "-DICESTORM_INSTALL_PREFIX=#{Formula["icestorm"].opt_prefix}" if build.with? "arch-ice40"
+
+    # ECP5
     archs << "ecp5" if build.with? "arch-ecp5"
+    args << "-DTRELLIS_INSTALL_PREFIX=#{Formula["prjtrellis"].opt_prefix}" if build.with? "arch-ecp5"
+
+    # Generic
     archs << "generic" if build.with? "arch-generic"
+
     args << ("-DARCH=" << archs.join(";"))
 
+    # Version information
     stable_version_commit = @stable.url[/([a-f0-9]{8})[a-f0-9]{32}\.tar\.gz/,1]
     stable_version = @stable.version.to_s+" ("+stable_version_commit+")"
     args << "-DCURRENT_GIT_VERSION="+stable_version unless build.head?
