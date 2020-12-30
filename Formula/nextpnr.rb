@@ -12,6 +12,7 @@ class Nextpnr < Formula
   option "with-arch-generic", "Enable generic arch support"
   option "without-arch-ice40", "Disable support for Lattice iCE40 FPGAs"
   option "without-arch-ecp5", "Disable support for Lattice ECP5 FPGAs"
+  option "without-arch-nexus", "Disable support for Lattice Nexus FPGAs"
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
@@ -21,6 +22,7 @@ class Nextpnr < Formula
   depends_on "eigen"
   depends_on "icestorm" if build.with? "arch-ice40"
   depends_on "prjtrellis" if build.with? "arch-ecp5"
+  depends_on "prjoxide" if build.with? "arch-nexus"
   depends_on "qt" if build.with? "gui"
   depends_on "python" if build.with? "python"
 
@@ -42,6 +44,10 @@ class Nextpnr < Formula
     archs << "ecp5" if build.with? "arch-ecp5"
     args << "-DTRELLIS_INSTALL_PREFIX=#{Formula["prjtrellis"].opt_prefix}" if build.with? "arch-ecp5"
 
+    # Nexus
+    archs << "nexus" if build.with? "arch-nexus"
+    args << "-DOXIDE_INSTALL_PREFIX=#{Formula["prjoxide"].opt_prefix}" if build.with? "arch-nexus"
+
     # Generic
     archs << "generic" if build.with? "arch-generic"
 
@@ -59,7 +65,8 @@ class Nextpnr < Formula
   end
 
   test do
-    system "#{bin}/nextpnr-ecp5", "--help" if build.with? "arch-ecp5"
     system "#{bin}/nextpnr-ice40", "--help" if build.with? "arch-ice40"
+    system "#{bin}/nextpnr-ecp5", "--help" if build.with? "arch-ecp5"
+    system "#{bin}/nextpnr-nexus", "--help" if build.with? "arch-nexus"
   end
 end
