@@ -1,10 +1,10 @@
 class Icestorm < Formula
   desc "Bitstream Tools for Lattice iCE40 FPGAs"
   homepage "http://www.clifford.at/icestorm/"
-  url "https://github.com/cliffordwolf/icestorm/archive/7afc64b480212c9ac2ce7cb1622731a69a7d212c.tar.gz"
-  version "20201204"
-  sha256 "0ea6d616e4f7411809291b8cf229ca5c9bd000460715cb9e4d4496e04555a116"
-  head "https://github.com/cliffordwolf/icestorm.git"
+  url "https://github.com/YosysHQ/icestorm/archive/c495861c19bd0976c88d4964f912abe76f3901c3.tar.gz"
+  version "20210309"
+  sha256 "ff20faff0e3db2b5f1fb714486c8a5a5e480042de74267fcf59c772ec0805f66"
+  head "https://github.com/YosysHQ/icestorm.git"
 
   depends_on "pkg-config" => :build
   depends_on "libftdi0"
