@@ -1,9 +1,9 @@
 class Openfpgaloader < Formula
   desc "Universal utility for programming FPGA"
   homepage "https://github.com/trabucayre/openFPGALoader"
-  url "https://github.com/trabucayre/openFPGALoader/archive/v0.2.1.zip"
-  version "0.2.1"
-  sha256 "8f1de525b61d1f70f19ddb7158f7d1e8d9f55caf597930f8437e82c11c772255"
+  url "https://github.com/trabucayre/openFPGALoader/archive/v0.2.5.zip"
+  version "0.2.5"
+  sha256 "dbc07ee1ecb164f6bee3aa129bc3da29d5427bae12c0312e46537cc0a13db4d7"
   head "https://github.com/trabucayre/openFPGALoader.git"
 
   depends_on "libftdi"
