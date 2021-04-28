@@ -6,7 +6,7 @@ class Nextpnr < Formula
   sha256 "d0044ebf403b3711cd2210827d3cdc5a7818cdf557ee67a33816e7befc577857"
   head "https://github.com/YosysHQ/nextpnr.git"
 
-  option "without-gui", "No GUI"
+  option "with-gui", "Enable GUI"
   option "without-python", "No python scripting support"
   option "with-static", "Build with static libraries"
   option "with-arch-generic", "Enable generic arch support"
@@ -23,7 +23,7 @@ class Nextpnr < Formula
   depends_on "icestorm" if build.with? "arch-ice40"
   depends_on "prjtrellis" if build.with? "arch-ecp5"
   depends_on "prjoxide" if build.with? "arch-nexus"
-  depends_on "qt" if build.with? "gui"
+  depends_on "qt5" if build.with? "gui"
   depends_on "python" if build.with? "python"
 
   resource "abseil-cpp" do
@@ -42,7 +42,7 @@ class Nextpnr < Formula
 
     # Generic options
     args = []
-    args << "-DBUILD_GUI=OFF" if build.without? "gui"
+    args << "-DBUILD_GUI=ON" if build.with? "gui"
     args << "-DBUILD_PYTHON=OFF" if build.without? "python"
     args << "-DSTATIC_BUILD=ON" if build.with? "static"
 
