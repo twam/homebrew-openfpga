@@ -1,9 +1,9 @@
 class Nextpnr < Formula
   desc "Place and Route Tool for FPGAs"
   homepage "https://github.com/YosysHQ/nextpnr"
-  url "https://github.com/YosysHQ/nextpnr/archive/6fbefb8f1388dbb2bfe059624f7cb76ee9a81c5e.tar.gz"
-  version "20210415"
-  sha256 "d0044ebf403b3711cd2210827d3cdc5a7818cdf557ee67a33816e7befc577857"
+  url "https://github.com/YosysHQ/nextpnr/archive/ced31aa917d2b9da711f246815aae0d968b9365a.tar.gz"
+  version "20210509"
+  sha256 "8f4aba491ee6e1ff15b444e1628dac28a2f1943a371aa269126bcd937eeb30b7"
   head "https://github.com/YosysHQ/nextpnr.git"
 
   option "with-gui", "Enable GUI"
@@ -32,8 +32,8 @@ class Nextpnr < Formula
   end
 
   resource "fpga-interchange-schema" do
-   url "https://github.com/SymbiFlow/fpga-interchange-schema/archive/8ec5b1739d7b91b84df3e92ccc70c7a7ee644089.tar.gz"
-   sha256 "a27249b208862e251fa598d7896f3781e25756625a1c0b9a9ce4cf0778351c46"
+   url "https://github.com/SymbiFlow/fpga-interchange-schema/archive/b3ab09776c8dc31a71ca2c7fbcb4575219232d16.tar.gz"
+   sha256 "0b8ebb7c5144b5bd2eb4153058aebd7918ac6a1cae765baa8ea82a81e343cb49"
   end
 
   def install
