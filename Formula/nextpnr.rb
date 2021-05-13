@@ -13,6 +13,7 @@ class Nextpnr < Formula
   option "without-arch-ice40", "Disable support for Lattice iCE40 FPGAs"
   option "without-arch-ecp5", "Disable support for Lattice ECP5 FPGAs"
   option "without-arch-nexus", "Disable support for Lattice Nexus FPGAs"
+  option "with-saferam", "Build chip databases sequentially to save RAM during build"
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
@@ -45,6 +46,7 @@ class Nextpnr < Formula
     args << "-DBUILD_GUI=ON" if build.with? "gui"
     args << "-DBUILD_PYTHON=OFF" if build.without? "python"
     args << "-DSTATIC_BUILD=ON" if build.with? "static"
+    args << "-DSERIALIZE_CHIPDBS=FALSE" if build.without? "saferam"
 
     # Architectures
     archs = []
@@ -71,6 +73,7 @@ class Nextpnr < Formula
     stable_version = @stable.version.to_s+" ("+stable_version_commit+")"
     args << "-DCURRENT_GIT_VERSION="+stable_version unless build.head?
     args << "-DCURRENT_GIT_VERSION="+head.version.commit if build.head?
+
 
     system "cmake", *args, ".", "-GNinja", *std_cmake_args
     system "ninja"
