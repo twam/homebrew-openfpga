@@ -1,8 +1,8 @@
 class Prjoxide < Formula
   desc "Device database and tools for bitstream creation for Lattice Nexus FPGAs"
   homepage "https://github.com/gatecat/prjoxide"
-  version "20210512"
-  url "https://github.com/gatecat/prjoxide/archive/f61d18eb33fddb16ea7736b8c9e6282fc3f8e7e0.tar.gz"
+  version "20210526"
+  url "https://github.com/gatecat/prjoxide/archive/7b3e4f85562d3b86a367e8d97d4314ebdee7647a.tar.gz"
   sha256 "50cca748dcdb5f41a16f68ee128b95d187764a10d21b9298b1954fffb3e9f7f1"
   head "https://github.com/gatecat/prjoxide.git"
 
