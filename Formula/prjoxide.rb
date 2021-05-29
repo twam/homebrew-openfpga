@@ -3,7 +3,7 @@ class Prjoxide < Formula
   homepage "https://github.com/gatecat/prjoxide"
   version "20210526"
   url "https://github.com/gatecat/prjoxide/archive/7b3e4f85562d3b86a367e8d97d4314ebdee7647a.tar.gz"
-  sha256 "50cca748dcdb5f41a16f68ee128b95d187764a10d21b9298b1954fffb3e9f7f1"
+  sha256 "411602c72ff21fe703f80a8191660941bbdecd17ff06c07638f8f29122aa5b54"
   head "https://github.com/gatecat/prjoxide.git"
 
   depends_on "rust" => :build
