@@ -1,9 +1,9 @@
 class Nextpnr < Formula
   desc "Place and Route Tool for FPGAs"
   homepage "https://github.com/YosysHQ/nextpnr"
-  url "https://github.com/YosysHQ/nextpnr/archive/589ca8ded5da2012e4388a3ec4c8fae74dff75e4.tar.gz"
-  version "20210602"
-  sha256 "82fb679dbee7411c35996159e2e0fff7b5f268467a2a01579c7cef6a84df8b41"
+  url "https://github.com/YosysHQ/nextpnr/archive/a3d8b4f9d198226ec0903e34a8d290b376b45c0b.tar.gz"
+  version "20210603"
+  sha256 "ea93bf555463bd77ff6029ea2a07221c21298a4db82522c251ec17ec8789d061"
   head "https://github.com/YosysHQ/nextpnr.git"
 
   option "with-gui", "Enable GUI"
@@ -27,18 +27,12 @@ class Nextpnr < Formula
   depends_on "qt5" if build.with? "gui"
   depends_on "python" if build.with? "python"
 
-  resource "abseil-cpp" do
-   url "https://github.com/abseil/abseil-cpp/archive/a76698790753d2ec71f655cdc84d61bcb27780d4.tar.gz"
-   sha256 "c7862d3fd133504a401140894763ac9e9456c1c901bba37e1bc659854599befb"
-  end
-
   resource "fpga-interchange-schema" do
    url "https://github.com/SymbiFlow/fpga-interchange-schema/archive/6b2973788692be86c4a8b2cff1353e603e5857a3.tar.gz"
    sha256 "d533b3157bb336aebefdb6bd12651b2f28a995df7b3c16067626befe9a1e2790"
   end
 
   def install
-    (buildpath/"3rdparty/abseil-cpp").install resource("abseil-cpp") unless build.head?
     (buildpath/"3rdparty/fpga-interchange-schema").install resource("fpga-interchange-schema") unless build.head?
 
     # Generic options
