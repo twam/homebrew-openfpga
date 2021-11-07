@@ -1,9 +1,9 @@
 class Prjtrellis < Formula
   desc "Device database and tools for bitstream creation for Lattice ECP5 FPGAs"
   homepage "https://github.com/YosysHQ/prjtrellis"
-  version "20210706"
-  url "https://github.com/YosysHQ/prjtrellis/archive/fe1c39c8b66b103d82ddb23ceb62e4a528058057.tar.gz"
-  sha256 "9e34f6719eef73ea14e4c9705688f6475b408464f8b1c4aaa188d5eac478cce5"
+  version "20210901"
+  url "https://github.com/YosysHQ/prjtrellis/archive/03e0070f263fbe31c247de61d259544722786210.tar.gz"
+  sha256 "b392fad2396ddbe92509ad28dc2189fd95034d59aa6ff3370a287551f97921cf"
   head "https://github.com/YosysHQ/prjtrellis.git"
 
   option "without-python", "No python"
