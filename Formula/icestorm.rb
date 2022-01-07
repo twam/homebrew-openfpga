@@ -1,9 +1,9 @@
 class Icestorm < Formula
   desc "Bitstream Tools for Lattice iCE40 FPGAs"
   homepage "http://www.clifford.at/icestorm/"
-  url "https://github.com/YosysHQ/icestorm/archive/83b8ef947f77723f602b706eac16281e37de278c.tar.gz"
-  version "20210906"
-  sha256 "cfec4396ca06e33a91e27e194acf58eaa23eeb801ce23020d9e405de0806f0b6"
+  url "https://github.com/YosysHQ/icestorm/archive/3b7b1991318860997ef589112b3debb24eb4912d.tar.gz"
+  version "20220102"
+  sha256 "ed34e5c79bb4ccc36673f39abd68eea6d2d0feb49222a61e0636555fc201c5ea"
   head "https://github.com/YosysHQ/icestorm.git"
 
   depends_on "pkg-config" => :build
