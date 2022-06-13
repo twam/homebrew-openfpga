@@ -1,9 +1,9 @@
 class Prjtrellis < Formula
   desc "Device database and tools for bitstream creation for Lattice ECP5 FPGAs"
   homepage "https://github.com/YosysHQ/prjtrellis"
-  version "20211214"
-  url "https://github.com/YosysHQ/prjtrellis/archive/2f06397673bbca3da11928d538b8ab7d01c944c6.tar.gz"
-  sha256 "636d7394d78ab05e64f80b0d21cd994dc2e5d0614d780161107186e217244423"
+  version "20220429"
+  url "https://github.com/YosysHQ/prjtrellis/archive/64b38dfda6f0bc556839b513820f943f64b23cc3.tar.gz"
+  sha256 "947cd873b6dd1ff047d4dd5fa4c1baddd4238c166d300f56fcee95537fc8fd1c"
   head "https://github.com/YosysHQ/prjtrellis.git"
 
   option "without-python", "No python"
@@ -17,8 +17,8 @@ class Prjtrellis < Formula
   depends_on "python"
 
   resource "database" do
-    url "https://github.com/YosysHQ/prjtrellis-db/archive/0ee729d20eaf9f1e0f1d657bc6452e3ffe6a0d63.tar.gz"
-    sha256 "094dd59e5755f7eae1c02ba8d1620e58d2e3b3731e1a9767f8d6c793457ddb99"
+    url "https://github.com/YosysHQ/prjtrellis-db/archive/35d900a94ff0db152679a67bf6e4fbf40ebc34aa.tar.gz"
+    sha256 "83dd2975860f94ece1003426add37f5d99eff62d2ba764a14d9a358d9880ecd0"
   end
 
   def install
