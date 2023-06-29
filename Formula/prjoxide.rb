@@ -1,16 +1,16 @@
 class Prjoxide < Formula
   desc "Device database and tools for bitstream creation for Lattice Nexus FPGAs"
   homepage "https://github.com/gatecat/prjoxide"
-  version "20220527"
-  url "https://github.com/gatecat/prjoxide/archive/d1fc5cd045531a0cc48ebffd5802f4ef84067aea.tar.gz"
-  sha256 "2b7871bbd15262aa41a2ff24dc7ca38aa1b2c50e0300ac1b80141da8fa99e140"
+  version "20230517"
+  url "https://github.com/gatecat/prjoxide/archive/a64ccc79c0af45811a052ef737d7ed9b8fec4a9c.tar.gz"
+  sha256 "445845b2e104367d3d1093223b8316a40c5483e8ddc0a945676550489cf1c960"
   head "https://github.com/gatecat/prjoxide.git"
 
   depends_on "rust" => :build
 
   resource "database" do
-   url "https://github.com/gatecat/prjoxide-db/archive/1566e0d8af245c4d52f4c5ec04667e5a4f0f01e2.tar.gz"
-   sha256 "2d840947247a91daeb8c058448cb3cd3fe2c0b949ecc8eb5df21b48cc38f37f5"
+   url "https://github.com/gatecat/prjoxide-db/archive/56009be1ca77a7123ffdb50a813216302a42ac27.tar.gz"
+   sha256 "164f7c3b93f778465b5a72ece445a1f9fc7af3a6fd303b7090b9540fb803f9c6"
   end
 
   def install
