@@ -1,9 +1,9 @@
 class Nextpnr < Formula
   desc "Place and Route Tool for FPGAs"
   homepage "https://github.com/YosysHQ/nextpnr"
-  url "https://github.com/YosysHQ/nextpnr/archive/8d063d38b148b1e7095a032ffc9cf957c2407f32.tar.gz"
-  version "20220612"
-  sha256 "eb88e0963015e74f3644438025d0fc7805b362d9f8adb0ad92d1e0d656231b27"
+  url "https://github.com/YosysHQ/nextpnr/archive/54b2045726fc3fe77857c05c81a5ab77e98ba851.tar.gz"
+  version "20230620"
+  sha256 "17b8813f7dcc9c7f4663d2269b957504835efa50db24f9bc2a096adae3e41092"
   head "https://github.com/YosysHQ/nextpnr.git"
 
   option "with-gui", "Enable GUI"
@@ -27,14 +27,7 @@ class Nextpnr < Formula
   depends_on "qt5" if build.with? "gui"
   depends_on "python" if build.with? "python"
 
-  resource "fpga-interchange-schema" do
-   url "https://github.com/SymbiFlow/fpga-interchange-schema/archive/6b2973788692be86c4a8b2cff1353e603e5857a3.tar.gz"
-   sha256 "d533b3157bb336aebefdb6bd12651b2f28a995df7b3c16067626befe9a1e2790"
-  end
-
   def install
-    (buildpath/"3rdparty/fpga-interchange-schema").install resource("fpga-interchange-schema") unless build.head?
-
     # Generic options
     args = []
     args << "-DBUILD_GUI=ON" if build.with? "gui"
