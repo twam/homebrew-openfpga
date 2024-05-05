@@ -1,9 +1,9 @@
 class Nextpnr < Formula
   desc "Place and Route Tool for FPGAs"
   homepage "https://github.com/YosysHQ/nextpnr"
-  url "https://github.com/YosysHQ/nextpnr/archive/6d9322457ec075bb8302d6100f6867ca8eaf6387.tar.gz"
-  version "20231126"
-  sha256 "8c497eb464e3f70a18a5c95069c65a8195fc988c45a10066db42ecb8462ef638"
+  url "https://github.com/YosysHQ/nextpnr/archive/3f2451f8d78c88e299cb421539add41eadae17bf.tar.gz"
+  version "20240503"
+  sha256 "b5aaed81483cbf3b46b90c3df81bec0df0c59fc9fd3e620158ef1bed9af1b51d"
   head "https://github.com/YosysHQ/nextpnr.git"
 
   option "with-gui", "Enable GUI"
@@ -21,9 +21,9 @@ class Nextpnr < Formula
   depends_on "boost"
   depends_on "boost-python3"
   depends_on "eigen"
-  depends_on "icestorm" if build.with? "arch-ice40"
-  depends_on "prjtrellis" if build.with? "arch-ecp5"
-  depends_on "prjoxide" if build.with? "arch-nexus"
+  depends_on "twam/openfpga/icestorm" if build.with? "arch-ice40"
+  depends_on "twam/openfpga/prjtrellis" if build.with? "arch-ecp5"
+  depends_on "twam/openfpga/prjoxide" if build.with? "arch-nexus"
   depends_on "qt5" if build.with? "gui"
   depends_on "python" if build.with? "python"
 
